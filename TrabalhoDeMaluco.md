@@ -258,5 +258,5 @@
            
    Após isso, já que o IP e a Porta já esta nas configurações do Proxy e as configurações do IPv4 configuradas, tente abrir um site bloqueado pelo Windows, ele não deve abrir o site e o usuário deve ser redirecionado para a página criada com o Apache2.
      
-#NOSSO GRUPO FICOU ATÉ O FINAL DA AULA FINAL DO TRABALHO.
+# NOSSO GRUPO FICOU ATÉ O FINAL DA AULA FINAL DO TRABALHO.
 
