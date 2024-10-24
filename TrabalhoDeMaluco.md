@@ -8,10 +8,7 @@
 ### 🗂️ Sumário
 1. [👥 Integrantes do Grupo](#integrantes-do-grupo)
 2. [🔍 Passo a Passo](#passo-a-passo)
-3. [📈 Andamento](#andamento)
-4. [💾 Salvar](#salvar)
-5. [🖼️ Imagens](#imagens)
-6. [🌐 Sites Relevantes](#sites-relevantes)
+
 
 ---
 
