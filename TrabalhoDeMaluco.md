@@ -2,7 +2,7 @@
 <p align="center"></p>
 
 ### 📚 Resumo
-
+Este trabalho demonstra um passo-a-passo de como configurar um PC Linux para atuar como roteador e controlar os acessos de um PC Windows. Utilizando ferramentas como SSH, Apache2, SQUID e IP Tables, o objetivo é restringir o acesso a determinados sites no Windows por meio de um servidor proxy configurado no Linux. Além disso, o trabalho envolve a criação de sub-interfaces de rede, configuração de rotas, e bloqueio de palavras e sites específicos via proxy, redirecionando o usuário a uma página personalizada criada no Apache2..
 ---
 
 ### 🗂️ Sumário
