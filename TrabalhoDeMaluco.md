@@ -19,7 +19,9 @@
 - **Grupo 5:** Matheus Nogueira Albuquerque, Bruno Difante e Anthony Guedes <br><br>
 
 **🛠️ FERRAMENTAS UTILIZADAS:** <br><br>
-SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) <br>
+- SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) <br> <br>
+![image](https://github.com/user-attachments/assets/af91417f-d6e5-4e4d-9154-84681caba696)
+
 
 ---
 
@@ -33,6 +35,9 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
    -  Definir a topologia de rede, incluindo dispositivos e conexões
       - **LAN:** 192.168.1.32/29
       - **WAN:** 200.10.10.16/30
+    
+   ![image](https://github.com/user-attachments/assets/c2c167ea-b8b4-4fdf-8cd3-14f8f1e3892a)
+
 
 2. **🔑 Instalar o SSH no Linux**
    - Para instalação, siga as orientações abaixo:
@@ -94,18 +99,24 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
          <title>Página do Grupo 5</title>
      </head>
      <body>
-         <h1>Bem-vindo à nossa página, professor!</h1>
+         <h1>Bem-vindo à nossa página, UFNers!</h1>
          <p>Esta é uma página criada com Apache2.</p>
      </body>
      </html>
      ```
+   
+   
 
+   
    - Para salvar e sair da "criação html":
      ```bash
-     Ctrl + X
-     ou
-     Y + Enter
+     Ctrl + O e Enter
+     depois
+     Crtl + X
      ```
+
+      - Ficará assim: <br>
+      ![image](https://github.com/user-attachments/assets/a69179bf-7741-48e5-a524-86b30d910155)
 
    - Configurando permissões:
      ```bash
@@ -118,9 +129,7 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
      sudo ufw allow 'Apache'
      ```
 
-   - Abrir Site criado: [http://172.25.2.204/grupo1.html](http://172.25.2.204/grupo5.html)
-
-4. **📡 IP TABLES no Linux**
+5. **📡 IP TABLES no Linux**
    - Instalação:
      ```bash
      sudo apt install iptables
@@ -128,7 +137,7 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
      sudo systemctl enable netfilter-persistent
      ```
 
-5. **🌍 Criar Sub-interfaces no Linux**
+6. **🌍 Criar Sub-interfaces no Linux**
    - Primeiramente, instale o net-tools:
      ```bash
      sudo apt install net-tools
@@ -144,13 +153,13 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
      sudo ifconfig enp0s31f6:0 192.168.1.33 netmask 255.255.255.248
      ```
 
-6. **🔄 Configurar Rotas**
+7. **🔄 Configurar Rotas**
    - Exibir rotas:
      ```bash
      sudo route
      ```
 
-7. **🚫 Bloquear sites com Proxy**
+8. **🚫 Bloquear sites com Proxy**
    - Baixar o SQUID:
      ```bash
      sudo apt-get install squid
@@ -174,6 +183,10 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
    - Entrar no arquivo dos sites bloqueados:
      ```bash
      sudo nano /etc/squid/sites_bloqueados.txt
+
+     Coloque os sites que deseja bloquear, coloque . antes.
+     Ex: .G1.com
+         .iffarroupilha.edu.br
      ```
 
      - Criar arquivo para as palavras bloqueadas:
@@ -184,6 +197,11 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
    - Entrar no arquivo das palavras bloqueadas:
      ```bash
      sudo nano /etc/squid/palavras_bloqueadas.txt
+
+     Coloque as palavras que deseja bloquear
+     Ex: games
+         movies
+     
      ```
 
    - Configurações do SQUID:
@@ -221,43 +239,19 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
      sudo systemctl start squid
      ```
 
-8. **💻 No Windowns 11 agora:**
+9. **💻 No Windowns 11 agora:**
    - Abra as configurações.
       - Pesquise na barra de pesquisa "Proxy" e vá em "Configurações de proxy.
          - Vá em usar um servidor proxy e mude para "Ativado".
            - Coloque o IP novo (192.168.1.33) criado pela sub-interface e coloque a porta (3128) que foi colocada no squid.conf
              
    - Após isso pesquisa "Painel de Controle".
-      - Vá em "Rede e internet"
-      -     
+      - Vá em "Rede e internet" --> Central de Rede e Compartilhamento
+      - Clique em "Ethernet" e vá em "Propriedades" --> "Protocolo IP Versão 4 (TCP/IPv4) e coloque as seguintes configurações, com base no seu IP: 
+        - ![image](https://github.com/user-attachments/assets/dc27daa3-5630-4519-a892-a718935e187d)
+           - O "8.8.8.8" é o DNS do Google, coloque igual e vá em "OK". <br> <br>
+           
+   Após isso, já que o IP e a Porta já esta nas configurações do Proxy e as configurações do IPv4 configuradas, tente abrir um site bloqueado pelo Windows, ele não deve abrir o site e o usuário deve ser redirecionado para a página criada com o Apache2.
+     
 
----
 
-### 💾 Salvar
-Endereços que começam com 172 são endereços inválidos que não navegam pela internet.  
-Linux: quando criar sub-interface não vai permitir. IPV4 alterar 0 para 1.
-
-- **Endereço IPv4:** 172.25.2.205
-- **Máscara de Sub-rede:** 255.255.255.192
-- **Gateway Padrão:** 172.25.2.193
-- **IP Original:** aaa
-
----
-
-<h1 align="center">🖼️ Imagens</h1>
-
-<h2 align="center">🌐 Redes</h2>
-<p align="center">
-    <img src="redes.png" alt="redes">
-</p>
-
-<h2 align="center">📋 Quadro</h2>
-<p align="center">
-    <img src="quadro.jpeg" alt="quadro">
-</p>
-
----
-
-<h2 align="center">🌍 Sites Relevantes</h2>
-
-<div align="center">
