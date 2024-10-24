@@ -6,8 +6,16 @@
 ---
 
 ### 🗂️ Sumário
-1. [👥 Integrantes do Grupo](#integrantes-do-grupo)
-2. [🔍 Passo a Passo](#passo-a-passo)
+1. [👥 Integrantes do Grupo](#-integrantes-do-grupo)
+2. [🚀 Iniciando no Linux](#-iniciando-no-linux)
+   - [🗺️ Planejar as Redes](#-planejar-as-redes)
+   - [🔑 Instalar o SSH no Linux](#-instalar-o-ssh-no-linux)
+   - [🌐 Instalar o Apache 2 no Linux](#-instalar-o-apache-2-no-linux)
+   - [📡 IP Tables no Linux](#-ip-tables-no-linux)
+   - [🌍 Criar Sub-interfaces no Linux](#-criar-sub-interfaces-no-linux)
+   - [🔄 Configurar Rotas](#-configurar-rotas)
+   - [🚫 Bloquear Sites com Proxy](#-bloquear-sites-com-proxy)
+3. [💻 No Windows 11](#-no-windows-11)
 
 
 ---
