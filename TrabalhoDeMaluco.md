@@ -166,14 +166,24 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
      cd /etc/squid
      ```
 
-   - Criar arquivo:
+   - Criar arquivo para os sites bloqueados:
      ```bash
-     sudo touch /etc/squid/sites_bloqueados
+     sudo touch /etc/squid/sites_bloqueados.txt
      ```
 
-   - Entrar no arquivo:
+   - Entrar no arquivo dos sites bloqueados:
      ```bash
-     sudo nano /etc/squid/sites_proibidos
+     sudo nano /etc/squid/sites_bloqueados.txt
+     ```
+
+     - Criar arquivo para as palavras bloqueadas:
+     ```bash
+     sudo touch /etc/squid/palavras_bloqueadas.txt
+     ```
+
+   - Entrar no arquivo das palavras bloqueadas:
+     ```bash
+     sudo nano /etc/squid/palavras_bloqueadas.txt
      ```
 
    - Configurações do SQUID:
@@ -181,17 +191,17 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
      # Define a porta do proxy
      http_port 3128
 
-     # Permite acesso apenas à rede local (192.168.1.8/255.255.255.248)
-     acl rede_local src 192.168.1.8/255.255.255.248
-     http_access allow rede_local
-
      # Bloqueia o acesso aos sites que estão no arquivo "sites_bloqueados.txt"
-     acl sites_bloqueados url_regex -i "/etc/squid/sites_bloqueados"
+     acl sites_bloqueados url_regex -i "/etc/squid/sites_bloqueados.txt"
      http_access deny sites_bloqueados
 
      # Bloqueia o acesso aos sites que contém as palavras que estão no arquivo "palavras_bloqueadas.txt"
-     acl palavras_bloqueadas url_regex -i "/etc/squid/palavras_bloqueadas"
+     acl palavras_bloqueadas url_regex -i "/etc/squid/palavras_bloqueadas.txt"
      http_access deny palavras_bloqueadas
+
+     #Redireciona para o site criado com Apache2:
+     deny_info http://192.168.1.33/grupo5.html sites_bloqueados
+     deny_info http://192.168.1.33/grupo5.html palavras_bloqueadas
      ```
 
    - Fazer backup do SQUID:
@@ -211,28 +221,16 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
      sudo systemctl start squid
      ```
 
-8. **💻 Acessando o site pelo Windows 11**
+8. **💻 No Windowns 11 agora:**
    - Abra as configurações.
-   - Entre em **Rede e Internet**.
-      - Clique em **Proxy**.
-      - Desmarque a opção **Detectar configurações automaticamente**.
-   - Em configurações de proxy manual, clique na opção **Editar**.
-      - Clique em **Ativado**.
-   - Em **Endereço de proxy**, coloque o IP da sua máquina Linux e, na **Porta**, coloque 3128.
+      - Pesquise na barra de pesquisa "Proxy" e vá em "Configurações de proxy.
+         - Vá em usar um servidor proxy e mude para "Ativado".
+           - Coloque o IP novo (192.168.1.33) criado pela sub-interface e coloque a porta (3128) que foi colocada no squid.conf
+             
+   - Após isso pesquisa "Painel de Controle".
+      - Vá em "Rede e internet"
+      -     
 
----
-
-### 📊 Andamento
-| Nome          | Concluído                                               | Para que serve                          |
-|---------------|:-------------------------------------------------------:|-----------------------------------------|
-| LINUX         |   ✅                                                     | Ambiente para execução das tarefas      |
-| SSH           |   ✅                                                     | Acesso remoto e seguro ao servidor      |
-| APACHE 2      |   ✅                                                     | Servidor web para hospedar páginas      |
-| SUB-INTERFACE |   ✅                                                     | Segmentação de rede para diferentes serviços |
-| ROTAS         |   ✅                                                     | Direcionamento de tráfego na rede       |
-| PROXY         |   ✅                                                     | Intermediário para requisições externas |
-| SQUID         |   ✅                                                     | Servidor proxy para controle de acesso  |
-| IP TABLES     |   ✅                                                     | Gerenciamento de regras de firewall     |
 ---
 
 ### 💾 Salvar
@@ -263,9 +261,3 @@ Linux: quando criar sub-interface não vai permitir. IPV4 alterar 0 para 1.
 <h2 align="center">🌍 Sites Relevantes</h2>
 
 <div align="center">
-| Nome     | Link                                               |
-|----------|----------------------------------------------------|
-| **Dontpad** | [dontpad.com/grupodosfalhosprogramadores](https://dontpad.com/grupodosfalhosprogramadores) |
-| **Bloquear** | [pedr0xh.free.nf](http://172.25.2.204/grupo1.html)                         |
-| **Grupo 1** | [http://172.25.2.204/grupo1.html](http://172.25.2.204/grupo1.html) |
-</div>
