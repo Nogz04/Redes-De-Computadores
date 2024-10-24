@@ -27,25 +27,32 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
 ## 🔍 Passo a Passo
 1. **🗺️ Planejar as redes**
    - Definir a topologia de rede, incluindo dispositivos e conexões
-   - **LAN:** 192.168.1.0/24
-   - **WAN:** 200.10.10.0/24
+      - **LAN:** 192.168.1.0/29
+      - **WAN:** 200.10.10.0/30
+  
+   -  Definir a topologia de rede, incluindo dispositivos e conexões
+      - **LAN:** 192.168.1.32/29
+      - **WAN:** 200.10.10.16/30
 
 2. **🔑 Instalar o SSH no Linux**
    - Para instalação, siga as orientações abaixo:
      ```bash
      sudo apt-get update
-     sudo apt-get upgrade
      sudo apt-get install openssh-client
      ```
 
    - Criar usuário:
      ```bash
      sudo adduser username
+
+     Ex: sudo adduser Grupo5
      ```
 
    - Adicionar usuário na lista do SUDO:
      ```bash
      sudo usermod -aG sudo username
+
+     Ex: sudo usermod -aG sudo Grupo5
      ```
 
    - Entrar como super usuário:
@@ -56,6 +63,8 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
    - Logar usuário / Mudar usuário:
      ```bash
      sudo su username
+
+     Ex: sudo su Grupo5
      ```
 
 3. **🌐 Instalar o Apache 2 no Linux**
@@ -72,7 +81,7 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
 
    - Criando a página:
      ```bash
-     sudo nano /var/www/html/grupo1.html
+     sudo nano /var/www/html/grupo5.html
      ```
 
    - O conteúdo da página:
@@ -82,7 +91,7 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
      <head>
          <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>Página do Grupo 1</title>
+         <title>Página do Grupo 5</title>
      </head>
      <body>
          <h1>Bem-vindo à nossa página, professor!</h1>
@@ -109,7 +118,7 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
      sudo ufw allow 'Apache'
      ```
 
-   - Abrir Site criado: [http://172.25.2.204/grupo1.html](http://172.25.2.204/grupo1.html)
+   - Abrir Site criado: [http://172.25.2.204/grupo1.html](http://172.25.2.204/grupo5.html)
 
 4. **📡 IP TABLES no Linux**
    - Instalação:
@@ -132,7 +141,7 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
 
    - Adicionar a sub-interface (O IP será diferente conforme o grupo):
      ```bash
-     sudo ifconfig enp0s31f6:0 192.168.1.9 netmask 255.255.255.248
+     sudo ifconfig enp0s31f6:0 192.168.1.33 netmask 255.255.255.248
      ```
 
 6. **🔄 Configurar Rotas**
@@ -159,7 +168,7 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
 
    - Criar arquivo:
      ```bash
-     sudo touch /etc/squid/sites_proibidos
+     sudo touch /etc/squid/sites_bloqueados
      ```
 
    - Entrar no arquivo:
@@ -176,9 +185,13 @@ SSH, Linux, Windows, Apache 2, Rotas, Sub-interface e Proxy (SQUID e IP TABLES) 
      acl rede_local src 192.168.1.8/255.255.255.248
      http_access allow rede_local
 
-     # Bloqueia acesso a sites listados no arquivo "sites_proibidos"
-     acl sites_proibidos url_regex -i "/etc/squid/sites_proibidos"
-     http_access deny sites_proibidos
+     # Bloqueia o acesso aos sites que estão no arquivo "sites_bloqueados.txt"
+     acl sites_bloqueados url_regex -i "/etc/squid/sites_bloqueados"
+     http_access deny sites_bloqueados
+
+     # Bloqueia o acesso aos sites que contém as palavras que estão no arquivo "palavras_bloqueadas.txt"
+     acl palavras_bloqueadas url_regex -i "/etc/squid/palavras_bloqueadas"
+     http_access deny palavras_bloqueadas
      ```
 
    - Fazer backup do SQUID:
