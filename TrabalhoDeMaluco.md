@@ -8,7 +8,7 @@
 ### 🗂️ Sumário
 1. [👥 Integrantes do Grupo](#-integrantes-do-grupo)
 2. [🚀 Iniciando no Linux](#-iniciando-no-linux)
-3. [💻 No Windows 11 agora](#-no-windows-11-agora)
+3. [💻 No Windows 11](#-agora-vamos-para-o-windows-11)
 
 
 ---
@@ -233,7 +233,7 @@
      sudo systemctl start squid
      ```
 
-9. **💻 No Windowns 11 agora:**
+### 💻 Agora vamos para o Windows 11:
    - Abra as configurações.
       - Pesquise na barra de pesquisa "Proxy" e vá em "Configurações de proxy.
          - Vá em usar um servidor proxy e mude para "Ativado".
