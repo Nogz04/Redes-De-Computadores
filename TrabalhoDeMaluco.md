@@ -142,7 +142,7 @@
      sudo ifconfig
      ```
 
-   - Adicionar a sub-interface (O IP será diferente conforme o grupo):
+   - Adicionar a sub-interface (O IP será diferente, mudará conforme o grupo):
      ```bash
      sudo ifconfig enp0s31f6:0 192.168.1.33 netmask 255.255.255.248
      ```
@@ -224,12 +224,23 @@
      ```bash
      sudo rm squid.conf
      sudo nano squid.conf
+
+     ou
+
+     sudo rm /etc/squid/squid.conf
+     sudo nano /etc/squid/squid.conf
+
      ```
 
    - Reiniciar SQUID (Qualquer modificação deve ser reiniciada):
      ```bash
      sudo systemctl stop squid
      sudo systemctl start squid
+
+     ou
+
+     sudo systemctl restart squid
+
      ```
 
 ### 💻 Agora vamos para o Windows 11:
