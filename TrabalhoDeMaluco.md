@@ -26,7 +26,7 @@
 ### 🚀 INICIANDO NO LINUX:
 ## 🔍 Passo a Passo
 1. **🗺️ Planejar as redes**
-   -  Definir a topologia de rede, incluindo dispositivos e conexões
+   -  Definir a topologia de rede, incluindo dispositivos e conexões, no caso as do nosso grupo são:
       - **LAN:** 192.168.1.32/29
       - **WAN:** 200.10.10.16/30
     
