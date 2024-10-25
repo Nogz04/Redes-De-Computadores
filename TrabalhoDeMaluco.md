@@ -174,29 +174,28 @@
      sudo touch /etc/squid/sites_bloqueados.txt
      ```
 
-   - Entrar no arquivo dos sites bloqueados:
-     ```bash
-     sudo nano /etc/squid/sites_bloqueados.txt
+      - Entrar no arquivo dos sites bloqueados:
+        ```bash
+        sudo nano /etc/squid/sites_bloqueados.txt
+   
+        Coloque os sites que deseja bloquear, coloque . antes.
+        Ex: .G1.com
+            .iffarroupilha.edu.br
+        ```
 
-     Coloque os sites que deseja bloquear, coloque . antes.
-     Ex: .G1.com
-         .iffarroupilha.edu.br
-     ```
+   - Criar arquivo para as palavras bloqueadas:
+   ```bash
+   sudo touch /etc/squid/palavras_bloqueadas.txt
+   ```
 
-     - Criar arquivo para as palavras bloqueadas:
-     ```bash
-     sudo touch /etc/squid/palavras_bloqueadas.txt
-     ```
-
-   - Entrar no arquivo das palavras bloqueadas:
-     ```bash
-     sudo nano /etc/squid/palavras_bloqueadas.txt
-
-     Coloque as palavras que deseja bloquear
-     Ex: games
-         movies
-     
-     ```
+      - Entrar no arquivo das palavras bloqueadas:
+        ```bash
+        sudo nano /etc/squid/palavras_bloqueadas.txt
+   
+        Coloque as palavras que deseja bloquear
+        Ex: games
+            movies
+        ```
 
    - Configurações do SQUID:
      ```bash
