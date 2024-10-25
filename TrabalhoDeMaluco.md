@@ -245,7 +245,7 @@
         - ![image](https://github.com/user-attachments/assets/dc27daa3-5630-4519-a892-a718935e187d)
            - O "8.8.8.8" é o DNS do Google, coloque igual e vá em "OK". <br> <br>
            
-   Após isso, já que o IP e a Porta já esta nas configurações do Proxy e as configurações do IPv4 configuradas, tente abrir um site bloqueado pelo Windows, ele não deve abrir o site e o usuário deve ser redirecionado para a página criada com o Apache2.
+   Após isso, já que o IP e a Porta já esta nas configurações do Proxy e as configurações do IPv4 também estão configuradas, tente abrir um site bloqueado, via Windows, ele não deve abrir o site e o usuário deve ser redirecionado para a página criada com o Apache2.
      
-# NOSSO GRUPO FICOU ATÉ O FINAL DA AULA FINAL DO TRABALHO.
+# NOSSO GRUPO FICOU ATÉ O FINAL DA AULA DO TRABALHO.
 
